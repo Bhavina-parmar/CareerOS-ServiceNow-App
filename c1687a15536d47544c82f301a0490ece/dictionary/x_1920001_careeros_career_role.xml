@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="ec1d7f19536587544c82f301a0490e60" label="Career Role" max_length="40" name="x_1920001_careeros_career_role" type="collection">
+        <element choice="3" label="Career Level" max_length="40" name="career_level" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Beginner" sequence="0" value="beginner"/>
+                <element inactive_on_update="false" label="Advanced" sequence="2" value="advanced"/>
+                <element inactive_on_update="false" label="Intermediate" sequence="1" value="intermediate"/>
+            </choice>
+        </element>
+        <element display="true" label="Role Name" max_length="100" name="role_name" type="string"/>
+        <element label="Description" max_length="40" name="description" type="string"/>
+    </element>
+</database>

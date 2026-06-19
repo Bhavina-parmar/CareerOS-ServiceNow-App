@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="934a7619536d47544c82f301a0490e55" label="Career Profile" max_length="40" name="x_1920001_careeros_career_profile" type="collection">
+        <element label="Email" max_length="100" name="email" type="string"/>
+        <element label="Profile Completion" max_length="40" name="profile_completion" type="integer"/>
+        <element display="true" label="Full Name" max_length="100" name="full_name" type="string"/>
+        <element label="Current Company" max_length="150" name="current_company" type="string"/>
+        <element label="Portfolio URL" max_length="1024" name="portfolio_url" type="url"/>
+        <element choice="3" default="draft" label="Status" max_length="40" name="status" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Active" sequence="1" value="active"/>
+                <element inactive_on_update="false" label="Draft" sequence="0" value="draft"/>
+                <element inactive_on_update="false" label="Review Pending" sequence="2" value="review_pending"/>
+            </choice>
+        </element>
+        <element label="User" max_length="32" name="user" reference="sys_user" type="reference"/>
+        <element label="College" max_length="150" name="college" type="string"/>
+        <element label="Phone" max_length="255" name="phone" type="phone_number_e164"/>
+        <element label="LinkedIn URL" max_length="1024" name="linkedin_url" type="url"/>
+        <element label="GitHub URL" max_length="1024" name="github_url" type="url"/>
+        <element label="Experience Years" max_length="40" name="experience_years" type="integer"/>
+        <element label="Current Role" max_length="100" name="current_role" type="string"/>
+        <element label="LeetCode URL" max_length="1024" name="leetcode_url" type="url"/>
+        <element label="Career Score" max_length="40" name="career_score" type="integer"/>
+        <element attributes="edge_encryption_enabled=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <element label="Target Role" max_length="32" name="target_role" reference="x_1920001_careeros_career_role" type="reference"/>
+        <index name="index">
+            <element name="target_role"/>
+        </index>
+        <index name="index2">
+            <element name="user"/>
+        </index>
+    </element>
+</database>

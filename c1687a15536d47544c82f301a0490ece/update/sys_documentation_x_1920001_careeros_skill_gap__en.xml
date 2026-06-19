@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="" label="Skill Gap" language="en" table="x_1920001_careeros_skill_gap">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element/>
+            <help/>
+            <hint/>
+            <label>Skill Gap</label>
+            <language>en</language>
+            <name>x_1920001_careeros_skill_gap</name>
+            <plural>Skill Gaps</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-06-19 06:17:56</sys_created_on>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Skill Gap</sys_name>
+            <sys_package display_value="CareerOS" source="x_1920001_careeros">c1687a15536d47544c82f301a0490ece</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="CareerOS">c1687a15536d47544c82f301a0490ece</sys_scope>
+            <sys_update_name>sys_documentation_x_1920001_careeros_skill_gap__en</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-06-19 06:17:56</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

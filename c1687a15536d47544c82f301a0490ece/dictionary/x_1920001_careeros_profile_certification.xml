@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="66280ff1532d4b544c82f301a0490ea5" label="Profile Certification" max_length="40" name="x_1920001_careeros_profile_certification" type="collection">
+        <element label="Date Earned" max_length="40" name="date_earned" type="glide_date"/>
+        <element label="Expiration Date" max_length="40" name="expiration_date" type="glide_date"/>
+        <element label="Credential ID" max_length="100" name="credential_id" type="string"/>
+        <element label="Profile" max_length="32" name="profile" reference="x_1920001_careeros_career_profile" type="reference"/>
+        <element choice="1" default="completed" label="Status" max_length="40" name="status" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Completed" sequence="2" value="completed"/>
+                <element inactive_on_update="false" label="Expired" sequence="3" value="expired"/>
+                <element inactive_on_update="false" label="In Progress" sequence="1" value="in_progress"/>
+                <element inactive_on_update="false" label="Planned" sequence="0" value="planned"/>
+            </choice>
+        </element>
+        <element label="Certification" max_length="32" name="certification" reference="x_1920001_careeros_certification" type="reference"/>
+        <index name="index">
+            <element name="certification"/>
+        </index>
+        <index name="index2">
+            <element name="profile"/>
+        </index>
+    </element>
+</database>

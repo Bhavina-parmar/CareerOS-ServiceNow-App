@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_section caption="New section 1" section_id="52f50bfd53e94b544c82f301a0490ea1" sys_domain="global" table="x_1920001_careeros_certification" version="3" view="">
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>certification_name</element>
+            <position>0</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-06-19 03:44:05</sys_created_on>
+            <sys_id>9eb60371532d4b544c82f301a0490e12</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="New section 1" display_value="New section 1" name="x_1920001_careeros_certification" sys_domain="global" view="Default view">52f50bfd53e94b544c82f301a0490ea1</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-06-19 03:44:05</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>provider</element>
+            <position>1</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-06-19 03:44:05</sys_created_on>
+            <sys_id>5ab60371532d4b544c82f301a0490e13</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="New section 1" display_value="New section 1" name="x_1920001_careeros_certification" sys_domain="global" view="Default view">52f50bfd53e94b544c82f301a0490ea1</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-06-19 03:44:05</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>level</element>
+            <position>2</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-06-19 03:44:05</sys_created_on>
+            <sys_id>16b60371532d4b544c82f301a0490e14</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="New section 1" display_value="New section 1" name="x_1920001_careeros_certification" sys_domain="global" view="Default view">52f50bfd53e94b544c82f301a0490ea1</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-06-19 03:44:05</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>description</element>
+            <position>3</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-06-19 03:44:05</sys_created_on>
+            <sys_id>deb60371532d4b544c82f301a0490e14</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="New section 1" display_value="New section 1" name="x_1920001_careeros_certification" sys_domain="global" view="Default view">52f50bfd53e94b544c82f301a0490ea1</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-06-19 03:44:05</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_section action="INSERT_OR_UPDATE">
+            <caption>New section 1</caption>
+            <header>false</header>
+            <name>x_1920001_careeros_certification</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-06-19 03:40:47</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>52f50bfd53e94b544c82f301a0490ea1</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_1920001_careeros_certification</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="CareerOS" source="x_1920001_careeros">c1687a15536d47544c82f301a0490ece</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="CareerOS">c1687a15536d47544c82f301a0490ece</sys_scope>
+            <sys_update_name>sys_ui_section_52f50bfd53e94b544c82f301a0490ea1</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-06-19 03:40:47</sys_updated_on>
+            <sys_user/>
+            <title>false</title>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+</record_update>

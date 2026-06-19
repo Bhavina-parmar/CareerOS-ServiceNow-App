@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="66948b3d53e94b544c82f301a0490e0b" label="Certification" max_length="40" name="x_1920001_careeros_certification" type="collection">
+        <element label="Description" max_length="500" name="description" type="string"/>
+        <element choice="3" label="Provider" max_length="40" name="provider" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Microsoft" sequence="2" value="microsoft"/>
+                <element inactive_on_update="false" label="Other" sequence="6" value="other"/>
+                <element inactive_on_update="false" label="RedHat" sequence="4" value="redhat"/>
+                <element inactive_on_update="false" label="Oracle" sequence="5" value="oracle"/>
+                <element inactive_on_update="false" label="Google" sequence="3" value="google"/>
+                <element inactive_on_update="false" label="AWS" sequence="1" value="aws"/>
+                <element inactive_on_update="false" label="ServiceNow" sequence="0" value="servicenow"/>
+            </choice>
+        </element>
+        <element choice="1" label="Level" max_length="40" name="level" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Foundation" sequence="0" value="foundation"/>
+                <element inactive_on_update="false" label="Expert" sequence="3" value="expert"/>
+                <element inactive_on_update="false" label="Associate" sequence="1" value="associate"/>
+                <element inactive_on_update="false" label="Professional" sequence="2" value="professional"/>
+            </choice>
+        </element>
+        <element display="true" label="Certification Name" max_length="100" name="certification_name" type="string"/>
+    </element>
+</database>

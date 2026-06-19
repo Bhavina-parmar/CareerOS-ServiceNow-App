@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="40f9e33953218b544c82f301a0490e03" label="Skill Gap" max_length="40" name="x_1920001_careeros_skill_gap" type="collection">
+        <element label="Profile" max_length="32" name="profile" reference="x_1920001_careeros_career_profile" type="reference"/>
+        <element label="Recommended Action" max_length="500" name="recommended_action" type="string"/>
+        <element choice="3" default="open" label="Status" max_length="40" name="status" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Open" sequence="0" value="open"/>
+                <element inactive_on_update="false" label="Ignored" sequence="3" value="ignored"/>
+                <element inactive_on_update="false" label="In Progress" sequence="1" value="in_progress"/>
+                <element inactive_on_update="false" label="Completed" sequence="2" value="completed"/>
+            </choice>
+        </element>
+        <element choice="3" default="medium" label="Priority" max_length="40" name="priority" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Low" sequence="0" value="low"/>
+                <element inactive_on_update="false" label="Critical" sequence="3" value="critical"/>
+                <element inactive_on_update="false" label="Medium" sequence="1" value="medium"/>
+                <element inactive_on_update="false" label="High" sequence="2" value="high"/>
+            </choice>
+        </element>
+        <element label="Target Role" max_length="32" name="target_role" reference="x_1920001_careeros_career_role" type="reference"/>
+        <element label="Missing Skill" max_length="32" name="missing_skill" reference="x_1920001_careeros_skill" type="reference"/>
+        <index name="index">
+            <element name="missing_skill"/>
+        </index>
+        <index name="index2">
+            <element name="profile"/>
+        </index>
+        <index name="index3">
+            <element name="target_role"/>
+        </index>
+    </element>
+</database>

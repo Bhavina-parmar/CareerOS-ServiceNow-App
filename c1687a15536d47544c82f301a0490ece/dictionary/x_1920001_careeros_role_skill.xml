@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="4cf4eb7d53ed4b544c82f301a0490e4c" label="Role Skill" max_length="40" name="x_1920001_careeros_role_skill" type="collection">
+        <element label="Skill" max_length="32" name="skills" reference="x_1920001_careeros_skill" type="reference"/>
+        <element label="Role" max_length="32" name="role" reference="x_1920001_careeros_career_role" type="reference"/>
+        <element choice="3" default="intermediate" label="Required Level" max_length="40" name="required_level" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Advanced" sequence="2" value="advanced"/>
+                <element inactive_on_update="false" label="Beginner" sequence="0" value="beginner"/>
+                <element inactive_on_update="false" label="Intermediate" sequence="1" value="intermediate"/>
+            </choice>
+        </element>
+        <element default="10" label="Weight" max_length="255" name="weight" type="integer"/>
+        <index name="index">
+            <element name="role"/>
+        </index>
+        <index name="index2">
+            <element name="skills"/>
+        </index>
+    </element>
+</database>

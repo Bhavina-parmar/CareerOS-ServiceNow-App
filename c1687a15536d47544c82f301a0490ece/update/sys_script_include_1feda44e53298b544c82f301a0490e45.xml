@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_1920001_careeros.CareerScoreCalculator</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <mobile_callable>false</mobile_callable>
+        <name>CareerScoreCalculator</name>
+        <sandbox_callable>false</sandbox_callable>
+        <script><![CDATA[var CareerScoreCalculator = Class.create();
+
+CareerScoreCalculator.prototype = {
+
+    initialize: function() {
+    },
+
+    calculate: function(profileSysId) {
+		gs.info('CareerScoreCalculator started');
+
+        var profileGR = new GlideRecord(
+            'x_1920001_careeros_career_profile'
+        );
+
+        if (!profileGR.get(profileSysId))
+            return;
+
+        if (gs.nil(profileGR.target_role))
+            return;
+
+        var totalWeight = 0;
+        var achievedWeight = 0;
+
+        var roleSkills = {};
+
+        var rs = new GlideRecord(
+            'x_1920001_careeros_role_skill'
+        );
+
+        rs.addQuery('role', profileGR.target_role.toString());
+        rs.query();
+
+        while (rs.next()) {
+
+            var skillId = rs.skills.toString();
+            var weight = parseInt(rs.weight, 10);
+
+            roleSkills[skillId] = weight;
+
+            totalWeight += weight;
+        }
+
+        var ps = new GlideRecord(
+            'x_1920001_careeros_profile_skill'
+        );
+
+        ps.addQuery('profile', profileSysId);
+        ps.query();
+
+        while (ps.next()) {
+
+            var skillId = ps.skill.toString();
+
+            if (roleSkills[skillId]) {
+
+                achievedWeight += roleSkills[skillId];
+            }
+        }
+
+        var score = 0;
+
+        if (totalWeight > 0) {
+
+            score = Math.round(
+                (achievedWeight / totalWeight) * 100
+            );
+        }
+
+        profileGR.setWorkflow(false);
+
+        profileGR.career_score = score;
+
+        profileGR.update();
+
+        gs.info(
+            'CareerOS Score for profile ' +
+            profileGR.full_name +
+            ' = ' +
+            score
+        );
+    },
+
+    type: 'CareerScoreCalculator'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-06-19 11:17:02</sys_created_on>
+        <sys_id>1feda44e53298b544c82f301a0490e45</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>CareerScoreCalculator</sys_name>
+        <sys_package display_value="CareerOS" source="x_1920001_careeros">c1687a15536d47544c82f301a0490ece</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="CareerOS">c1687a15536d47544c82f301a0490ece</sys_scope>
+        <sys_update_name>sys_script_include_1feda44e53298b544c82f301a0490e45</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-06-19 11:28:57</sys_updated_on>
+    </sys_script_include>
+</record_update>

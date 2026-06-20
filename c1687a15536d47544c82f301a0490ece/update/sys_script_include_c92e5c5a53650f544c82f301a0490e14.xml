@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_1920001_careeros.RoleMatchCalculator</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <mobile_callable>false</mobile_callable>
+        <name>RoleMatchCalculator</name>
+        <sandbox_callable>false</sandbox_callable>
+        <script><![CDATA[var RoleMatchCalculator = Class.create();
+
+RoleMatchCalculator.prototype = {
+
+    initialize: function() {},
+
+    calculate: function(profileId) {
+
+        // delete old matches
+        var oldMatch = new GlideRecord(
+            'x_1920001_careeros_role_match'
+        );
+
+        oldMatch.addQuery('profile', profileId);
+        oldMatch.query();
+
+        while (oldMatch.next())
+            oldMatch.deleteRecord();
+
+        // loop all roles
+        var roleGR = new GlideRecord(
+            'x_1920001_careeros_career_role'
+        );
+
+        roleGR.query();
+
+        while (roleGR.next()) {
+
+            var totalWeight = 0;
+            var matchedWeight = 0;
+
+            var roleSkills = {};
+
+            var rs = new GlideRecord(
+                'x_1920001_careeros_role_skill'
+            );
+
+            rs.addQuery('role', roleGR.sys_id);
+            rs.query();
+
+            while (rs.next()) {
+
+                roleSkills[
+                    rs.skills.toString()
+                ] = parseInt(rs.weight,10);
+
+                totalWeight += parseInt(
+                    rs.weight,10
+                );
+            }
+
+            var ps = new GlideRecord(
+                'x_1920001_careeros_profile_skill'
+            );
+
+            ps.addQuery('profile', profileId);
+            ps.query();
+
+            while (ps.next()) {
+
+                var skillId =
+                    ps.skill.toString();
+
+                if (roleSkills[skillId]) {
+
+                    matchedWeight +=
+                        roleSkills[skillId];
+                }
+            }
+
+            var percentage = 0;
+
+            if (totalWeight > 0) {
+
+                percentage = Math.round(
+                    (matchedWeight /
+                     totalWeight) * 100
+                );
+            }
+
+            var level = 'low';
+
+            if (percentage >= 80)
+                level = 'excellent';
+            else if (percentage >= 60)
+                level = 'high';
+            else if (percentage >= 40)
+                level = 'medium';
+
+            var match = new GlideRecord(
+                'x_1920001_careeros_role_match'
+            );
+
+            match.initialize();
+
+            match.profile = profileId;
+            match.role = roleGR.sys_id;
+            match.match_percentage =
+                percentage;
+
+            match.match_level = level;
+
+            match.recommendation =
+                'Improve missing skills to increase match score';
+
+            match.insert();
+        }
+    },
+
+    type: 'RoleMatchCalculator'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-06-20 04:46:08</sys_created_on>
+        <sys_id>c92e5c5a53650f544c82f301a0490e14</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>RoleMatchCalculator</sys_name>
+        <sys_package display_value="CareerOS" source="x_1920001_careeros">c1687a15536d47544c82f301a0490ece</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="CareerOS">c1687a15536d47544c82f301a0490ece</sys_scope>
+        <sys_update_name>sys_script_include_c92e5c5a53650f544c82f301a0490e14</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-06-20 04:46:08</sys_updated_on>
+    </sys_script_include>
+</record_update>

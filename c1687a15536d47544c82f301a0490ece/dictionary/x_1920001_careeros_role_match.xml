@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="32fcd0d653650f544c82f301a0490e33" label="Role Match" max_length="40" name="x_1920001_careeros_role_match" type="collection">
+        <element label="Match Percentage" max_length="40" name="match_percentage" type="integer"/>
+        <element label="Profile" max_length="32" name="profile" reference="x_1920001_careeros_career_profile" type="reference"/>
+        <element label="Role" max_length="32" name="role" reference="x_1920001_careeros_career_role" type="reference"/>
+        <element choice="3" label="Match Level" max_length="40" name="match_level" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="High" sequence="2" value="high"/>
+                <element inactive_on_update="false" label="Low" sequence="0" value="low"/>
+                <element inactive_on_update="false" label="Excellent" sequence="3" value="excellent"/>
+                <element inactive_on_update="false" label="Medium" sequence="1" value="medium"/>
+            </choice>
+        </element>
+        <element label="Recommendation" max_length="500" name="recommendation" type="string"/>
+        <index name="index">
+            <element name="profile"/>
+        </index>
+        <index name="index2">
+            <element name="role"/>
+        </index>
+    </element>
+</database>

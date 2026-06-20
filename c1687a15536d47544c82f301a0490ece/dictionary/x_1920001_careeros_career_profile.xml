@@ -23,6 +23,15 @@
         <element label="Career Score" max_length="40" name="career_score" type="integer"/>
         <element attributes="edge_encryption_enabled=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
         <element label="Target Role" max_length="32" name="target_role" reference="x_1920001_careeros_career_role" type="reference"/>
+        <element choice="3" label="Career Readiness Level" max_length="40" name="career_readiness_level" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Developing" sequence="1" value="developing"/>
+                <element inactive_on_update="false" label="Expert" sequence="4" value="expert"/>
+                <element inactive_on_update="false" label="Beginner" sequence="0" value="beginner"/>
+                <element inactive_on_update="false" label="Job Ready" sequence="2" value="job_ready"/>
+                <element inactive_on_update="false" label="Advanced" sequence="3" value="advanced"/>
+            </choice>
+        </element>
         <index name="index">
             <element name="target_role"/>
         </index>

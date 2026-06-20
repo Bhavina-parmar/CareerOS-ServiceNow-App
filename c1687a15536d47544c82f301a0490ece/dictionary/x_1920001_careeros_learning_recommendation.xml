@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="6081e81253a50f544c82f301a0490e92" label="Learning Recommendation" max_length="40" name="x_1920001_careeros_learning_recommendation" type="collection">
+        <element label="Course URL" max_length="1024" name="course_url" type="url"/>
+        <element label="Course Name" max_length="100" name="course_name" type="string"/>
+        <element choice="3" label="Provider" max_length="40" name="provider" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Coursera" sequence="1" value="coursera"/>
+                <element inactive_on_update="false" label="ServiceNow" sequence="0" value="servicenow"/>
+                <element inactive_on_update="false" label="YouTube" sequence="3" value="youtube"/>
+                <element inactive_on_update="false" label="LinkedIn Learning" sequence="4" value="linkedin_learning"/>
+                <element inactive_on_update="false" label="Udemy" sequence="2" value="udemy"/>
+            </choice>
+        </element>
+        <element label="Profile" max_length="32" name="profile" reference="x_1920001_careeros_career_profile" type="reference"/>
+        <element label="Skill Gap" max_length="32" name="skill_gap" reference="x_1920001_careeros_skill_gap" type="reference"/>
+        <element choice="3" label="Priority" max_length="40" name="priority" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="High" sequence="2" value="high"/>
+                <element inactive_on_update="false" label="Low" sequence="0" value="low"/>
+                <element inactive_on_update="false" label="Medium" sequence="1" value="medium"/>
+            </choice>
+        </element>
+        <element choice="3" label="Status" max_length="40" name="status" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Recommended" sequence="0" value="recommended"/>
+                <element inactive_on_update="false" label="In Progress" sequence="1" value="in_progress"/>
+                <element inactive_on_update="false" label="Completed" sequence="2" value="completed"/>
+            </choice>
+        </element>
+        <element label="Skill" max_length="32" name="skill" reference="x_1920001_careeros_skill" type="reference"/>
+        <element choice="3" label="Difficulty" max_length="40" name="difficulty" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Advanced" sequence="2" value="advanced"/>
+                <element inactive_on_update="false" label="Intermediate" sequence="1" value="intermediate"/>
+                <element inactive_on_update="false" label="Beginner" sequence="0" value="beginner"/>
+            </choice>
+        </element>
+        <index name="index">
+            <element name="profile"/>
+        </index>
+        <index name="index2">
+            <element name="skill"/>
+        </index>
+        <index name="index3">
+            <element name="skill_gap"/>
+        </index>
+    </element>
+</database>

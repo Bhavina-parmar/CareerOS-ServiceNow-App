@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_1920001_careeros.LearningRecommendationEngine</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <mobile_callable>false</mobile_callable>
+        <name>LearningRecommendationEngine</name>
+        <sandbox_callable>false</sandbox_callable>
+        <script><![CDATA[var LearningRecommendationEngine = Class.create();
+
+LearningRecommendationEngine.prototype = {
+
+    initialize: function() {},
+
+    generate: function(profileId) {
+
+        // Remove old recommendations
+
+        var oldRec = new GlideRecord(
+            'x_1920001_careeros_learning_recommendation'
+        );
+
+        oldRec.addQuery('profile', profileId);
+        oldRec.query();
+
+        while (oldRec.next()) {
+            oldRec.deleteRecord();
+        }
+
+        // Read all open skill gaps
+
+        var gapGR = new GlideRecord(
+            'x_1920001_careeros_skill_gap'
+        );
+
+        gapGR.addQuery('profile', profileId);
+        gapGR.addQuery('status', 'open');
+        gapGR.query();
+
+        while (gapGR.next()) {
+
+            var skillName =
+                gapGR.missing_skill.getDisplayValue();
+
+            var rec =
+                new GlideRecord(
+                    'x_1920001_careeros_learning_recommendation'
+                );
+
+            rec.initialize();
+
+            rec.profile = profileId;
+            rec.skill_gap = gapGR.sys_id;
+            rec.skill = gapGR.missing_skill;
+
+            // Dynamic recommendations
+
+            if (skillName == 'Flow Designer') {
+
+                rec.course_name =
+                    'Flow Designer Fundamentals';
+
+                rec.provider = 'servicenow';
+
+                rec.course_url =
+                    'https://nowlearning.servicenow.com';
+
+                rec.difficulty = 'intermediate';
+            }
+
+            else if (skillName == 'IntegrationHub') {
+
+                rec.course_name =
+                    'IntegrationHub Fundamentals';
+
+                rec.provider = 'servicenow';
+
+                rec.course_url =
+                    'https://nowlearning.servicenow.com';
+
+                rec.difficulty = 'advanced';
+            }
+
+            else if (skillName == 'JavaScript') {
+
+                rec.course_name =
+                    'JavaScript Essentials';
+
+                rec.provider = 'coursera';
+
+                rec.course_url =
+                    'https://www.coursera.org';
+
+                rec.difficulty = 'beginner';
+            }
+
+            else {
+
+                rec.course_name =
+                    skillName + ' Fundamentals';
+
+                rec.provider = 'youtube';
+
+                rec.course_url =
+                    'https://youtube.com';
+
+                rec.difficulty = 'beginner';
+            }
+
+            rec.priority = gapGR.priority;
+            rec.status = 'recommended';
+
+            rec.insert();
+        }
+    },
+
+    type: 'LearningRecommendationEngine'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-06-20 05:32:12</sys_created_on>
+        <sys_id>bee8a0de53a50f544c82f301a0490e06</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>LearningRecommendationEngine</sys_name>
+        <sys_package display_value="CareerOS" source="x_1920001_careeros">c1687a15536d47544c82f301a0490ece</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="CareerOS">c1687a15536d47544c82f301a0490ece</sys_scope>
+        <sys_update_name>sys_script_include_bee8a0de53a50f544c82f301a0490e06</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-06-20 05:32:12</sys_updated_on>
+    </sys_script_include>
+</record_update>
